@@ -1,0 +1,62 @@
+".vimrc
+"Travis Poulsen
+"
+set encoding=utf-8
+execute pathogen#infect('bundle/{}')
+"
+"Colorscheme.
+colorscheme Tomorrow-Night-Bright
+
+set mouse=a
+
+"For vim-airline to show up:
+set laststatus=2
+"vim-airline fonts
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+"Convert tabs to spaces.
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+
+"Line numbers.
+set number
+set ruler
+
+"Syntax highlighting and autoindenting based on filetype.
+syntax on
+filetype indent plugin on
+
+"Highlight search results:
+set hlsearch
+"\q to turn off highlight:
+nmap \q :nohlsearch<CR>
+"Highlight while typing:
+set incsearch
+set ignorecase
+set smartcase
+
+"Folding blocks of code (indent & manual):
+augroup folds
+    au BufReadPre * setlocal foldmethod=indent
+    au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
+
+"Autoreload when vimrc changes:
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
+"For work:
+set backspace=2
+
+"Keybingdings
+nmap \t :tabnew
+nmap \w :TagbarToggle<CR>
+nmap \e :NERDTreeToggle<CR>
+nmap \s :SyntasticCheck<CR>
+nmap ; :CtrlPBuffer<CR>

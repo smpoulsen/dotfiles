@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/tpoulsen/opl/scripts/haskell/rosalind/.git'
+let g:netrw_dirhist_2='/Users/tpoulsen/Code/webdev/d3_tests/.git'
+let g:netrw_dirhist_3='/Users/tpoulsen/Code/haskell/web/RecipeSite/dist'
+let g:netrw_dirhist_4='/Users/tpoulsen/opl/data/patients/excel_datasheets/sql'
+let g:netrw_dirhist_5='/Users/tpoulsen/opl/scripts/testing'
+let g:netrw_dirhist_6='/Users/tpoulsen/Code/haskell/hsGMaps/.cabal-sandbox'
+let g:netrw_dirhist_7='/Users/tpoulsen/Code/haskell/mapsAPI/Geography'
+let g:netrw_dirhist_8='/Users/tpoulsen/Code/Crypto'
+let g:netrw_dirhist_9='/Users/tpoulsen/dotfiles/.git'
