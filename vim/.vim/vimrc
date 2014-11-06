@@ -60,3 +60,5 @@ nmap \w :TagbarToggle<CR>
 nmap \e :NERDTreeToggle<CR>
 nmap \s :SyntasticCheck<CR>
 nmap ; :CtrlPBuffer<CR>
+nmap <C-a> <Home>
+nmap <C-e> <End>
