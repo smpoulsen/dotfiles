@@ -52,7 +52,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Users/tpoulsen/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Developer:/Users/tpoulsen/software/julia"
+export PATH="Users/tpoulsen/Library/Haskell/bin:/Users/tpoulsen/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Developer:/Users/tpoulsen/software/julia"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -79,7 +79,5 @@ export PATH="/Users/tpoulsen/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias opldb='psql -h 192.168.1.149 -U dbadmin newOPL'
-alias canopy='/Users/tpoulsen/.canopy/bin/ipython --pylab'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
