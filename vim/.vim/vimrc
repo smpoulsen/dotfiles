@@ -15,6 +15,9 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
+"For MacVim
+set guifont=Monaco\ for\ Powerline:h11
+
 "Convert tabs to spaces.
 set tabstop=4
 set softtabstop=4
@@ -60,5 +63,6 @@ nmap \w :TagbarToggle<CR>
 nmap \e :NERDTreeToggle<CR>
 nmap \s :SyntasticCheck<CR>
 nmap ; :CtrlPBuffer<CR>
+nmap \d :Dash<CR>
 nmap <C-a> <Home>
 nmap <C-e> <End>
