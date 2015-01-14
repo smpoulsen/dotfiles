@@ -16,3 +16,9 @@
 [submodule "vim/.vim/bundle/vim-gitgutter"]
 	path = vim/.vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim/.vim/bundle/purescript-vim"]
+	path = vim/.vim/bundle/purescript-vim
+	url = https://github.com/raichoo/purescript-vim.git
+[submodule "vim/.vim/bundle/dash.vim"]
+	path = vim/.vim/bundle/dash.vim
+	url = https://github.com/rizzatti/dash.vim.git
