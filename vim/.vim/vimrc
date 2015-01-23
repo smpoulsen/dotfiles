@@ -64,5 +64,7 @@ nmap \e :NERDTreeToggle<CR>
 nmap \s :SyntasticCheck<CR>
 nmap ; :CtrlPBuffer<CR>
 nmap \d :Dash<CR>
+"For quickly pulling up the buffer list and changing buffers.
+nmap <F5> :buffers<CR>:buffer<Space>
 nmap <C-a> <Home>
 nmap <C-e> <End>
