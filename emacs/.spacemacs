@@ -90,11 +90,22 @@
  ;; Not used for now.
  dotspacemacs-default-package-repository nil
  ;; Themes megapack
- dotspacemacs-configuration-layers '(themes-megapack)
- dotspacemacs-configuration-layers '(javascript)
- dotspacemacs-configuration-layers '(html)
+ dotspacemacs-configuration-layers '(auto-completion :variables
+                                                     auto-completion-use-tab-instead-of-enter
+                                     dash
+                                     ess
+                                     extra-langs
+                                     javascript
+                                     git
+                                     haskell
+                                     html
+                                     lang/markdown
+                                     org
+                                     ruby
+                                     syntax-checking
+                                     themes-megapack-packages
+                                     )
  )
-
 ;;Themes
 (setq-default dotspacemacs-themes '(sanityinc-tomorrow-bright))
 
@@ -107,6 +118,7 @@
 (defun dotspacemacs/init ()
   "User initialization for Spacemacs. This function is called at the very
  startup."
+  (setq-default ruby-enable-ruby-on-rails-support t)
   )
 
 (defun dotspacemacs/config ()
@@ -114,6 +126,7 @@
 This function is called at the very end of Spacemacs initialization."
   ;; Powerline separator
   (setq powerline-default-separator 'arrow)
+  (global-company-mode)
 )
 
 ;; Custom variables
@@ -123,3 +136,32 @@ This function is called at the very end of Spacemacs initialization."
 ;; auto-generate custom variable definitions.
 
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ac-ispell-requires 4)
+ '(ahs-case-fold-search nil)
+ '(ahs-default-range (quote ahs-range-whole-buffer))
+ '(ahs-idle-interval 0.25)
+ '(ahs-idle-timer 0 t)
+ '(ahs-inhibit-face-list nil)
+ '(haskell-interactive-popup-error nil)
+ '(haskell-notify-p t)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote auto))
+ '(haskell-stylish-on-save nil)
+ '(haskell-tags-on-save t)
+ '(ring-bell-function (quote ignore) t)
+ '(safe-local-variable-values
+   (quote
+    ((haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

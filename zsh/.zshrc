@@ -52,8 +52,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$HOME/Library/Haskell/bin:$HOME/.cabal/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Developer:$HOME/software/julia:$HOME/.rvm/bin"
+export PATH="$HOME/Library/Haskell/bin:$HOME/.cabal/bin:.nix-profile/bin/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Developer:$HOME/software/julia:$HOME/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+# Nix
+. /Users/tpoulsen/.nix-profile/etc/profile.d/nix.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
