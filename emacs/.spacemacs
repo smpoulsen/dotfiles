@@ -18,10 +18,13 @@
                      auto-completion-return-key-behavior 'complete
                      auto-completion-enable-sort-by-usage t)
      dash
+     elm
      emacs-lisp
-     erlang-elixir
+     erlang
+     elixir
      ess
      extra-langs
+     finance
      javascript
      git
      haskell
@@ -29,10 +32,15 @@
      markdown
      org
      purescript
+     racket
+     react
+     restclient
      ruby
+     ruby-on-rails
      shell
      syntax-checking
      themes-megapack
+     version-control
      ;;htmlize
    )
    ;; List of additional packages that will be installed wihout being
@@ -82,7 +90,8 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   ;; dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Monoid"
                                :size 13
                                :weight normal
                                :width normal
@@ -139,7 +148,7 @@ before layers configuration."
    ;; point when it reaches the top or bottom of the screen.
    dotspacemacs-smooth-scrolling t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
-   dotspacemacs-smartparens-strict-mode nil
+   ;; dotspacemacs-smartparens-strict-mode nil
    ;; Select a scope to highlight delimiters. Possible value is `all',
    ;; `current' or `nil'. Default is `all'
    dotspacemacs-highlight-delimiters 'all
@@ -154,13 +163,10 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
-  (setq-default ruby-enable-ruby-on-rails-support t)
   ;; File associations
-  (add-to-list 'auto-mode-alist '("\\.jsx" . web-mode))
-
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
@@ -170,6 +176,10 @@ layers configuration."
   (setq org-src-fontify-natively t)
   ;; Set tramp shell to bash b/c zsh PS1 makes it hang.
   (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+  (setq js-indent-level 2)
+  ;; Use eslint for react-mode
+  ;;(with-eval-after-load 'flycheck
+  ;;  (flycheck-add-mode 'javascript-eslint 'react-mode))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -181,7 +191,7 @@ layers configuration."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-ispell-requires 4)
+ '(ac-ispell-requires 4 t)
  '(ahs-case-fold-search nil)
  '(ahs-default-range (quote ahs-range-whole-buffer))
  '(ahs-idle-interval 0.25)
@@ -194,14 +204,19 @@ layers configuration."
  '(haskell-process-type (quote auto))
  '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save t)
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p t)
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values
    (quote
     ((haskell-process-use-ghci . t)
-     (haskell-indent-spaces . 4)))))
+     (haskell-indent-spaces . 4))))
+ '(web-mode-code-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((((class color) (min-colors 257)) (:foreground "#F8F8F2" :background "#272822")) (((class color) (min-colors 89)) (:foreground "#F5F5F5" :background "#1B1E1C"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
