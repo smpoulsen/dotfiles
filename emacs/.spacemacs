@@ -18,8 +18,10 @@
                      auto-completion-return-key-behavior 'complete
                      auto-completion-enable-sort-by-usage t)
      dash
+     elm
      emacs-lisp
-     erlang-elixir
+     erlang
+     elixir
      ess
      extra-langs
      javascript
@@ -29,10 +31,13 @@
      markdown
      org
      purescript
+     react
+     restclient
      ruby
      shell
      syntax-checking
      themes-megapack
+     vagrant
      ;;htmlize
    )
    ;; List of additional packages that will be installed wihout being
@@ -49,8 +54,8 @@
 
 (defun dotspacemacs/init ()
   "Initialization function.
-This function is called at the very startup of Spacemacs initialization
-before layers configuration."
+  This function is called at the very startup of Spacemacs initialization
+  before layers configuration."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
@@ -82,7 +87,7 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Monoid"
                                :size 13
                                :weight normal
                                :width normal
@@ -156,25 +161,48 @@ before layers configuration."
   ;; User initialization goes here
   (setq-default ruby-enable-ruby-on-rails-support t)
   ;; File associations
-  (add-to-list 'auto-mode-alist '("\\.jsx" . web-mode))
-
+  (add-to-list 'auto-mode-alist '("\\.js" . react-mode))
   )
 
 (defun dotspacemacs/config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  (global-linum-mode)
+  (indent-guide-global-mode)
+  (golden-ratio-mode)
+
   ;; Powerline separator
   (setq powerline-default-separator 'arrow)
   (global-company-mode)
   (setq org-src-fontify-natively t)
+
   ;; Set tramp shell to bash b/c zsh PS1 makes it hang.
   (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+
+  ;; Set indentation levels; override js, css, web modes to 2.
+  (setq js-indent-level 2)
+  (setq css-indent-offset 2)
+  (setq js2-basic-offset 2)
+  (setq setq js2-bounce-indent-p t)
+  (setq web-mode-markup-indentation 2)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-attr-indent-offset 2)
+  (setq indent-tabs-mode nil)
+  (eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concat" . nil))
+    ;;(add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
+    )
+  ;; Add nix and node modules bins to path.
+  ;; Tern, aspell, etc live in these.
+  (setq exec-path (append
+                   exec-path '(“~/node_modules/.bin” "~/.nix-profile/bin")))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
