@@ -52,7 +52,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$HOME/Library/Haskell/bin:$HOME/.cabal/bin:.nix-profile/bin/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Developer:$HOME/software/julia:$HOME/.rvm/bin"
+export PATH="$HOME/Library/Haskell/bin:$HOME/.cabal/bin:.nix-profile/bin/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Developer:$HOME/node_modules/.bin:/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Nix

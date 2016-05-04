@@ -15,4 +15,5 @@ alias opldb='psql -h 10.0.1.149 -U dbadmin newOPL'
 
 alias cabal20='~/.cabal/bin/cabal'
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/node_modules/.bin:$HOME/.nix-profile/bin:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
