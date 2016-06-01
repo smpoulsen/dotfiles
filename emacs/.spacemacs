@@ -24,6 +24,7 @@
      elixir
      ess
      extra-langs
+     eyebrowse
      javascript
      git
      haskell
@@ -34,6 +35,7 @@
      react
      restclient
      ruby
+     rust
      shell
      syntax-checking
      themes-megapack
@@ -184,7 +186,7 @@ layers configuration."
   (setq js-indent-level 2)
   (setq css-indent-offset 2)
   (setq js2-basic-offset 2)
-  (setq setq js2-bounce-indent-p t)
+  (setq js2-bounce-indent-p t)
   (setq web-mode-markup-indentation 2)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
@@ -209,27 +211,29 @@ layers configuration."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-ispell-requires 4)
+ '(ac-ispell-requires 4 t)
  '(ahs-case-fold-search nil)
  '(ahs-default-range (quote ahs-range-whole-buffer))
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
  '(haskell-interactive-popup-error nil)
- '(haskell-notify-p t)
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-notify-p t t)
+ '(haskell-process-auto-import-loaded-modules t t)
+ '(haskell-process-suggest-remove-import-lines t t)
  '(haskell-process-type (quote auto))
- '(haskell-stylish-on-save nil)
- '(haskell-tags-on-save t)
+ '(haskell-stylish-on-save nil t)
+ '(haskell-tags-on-save t t)
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values
    (quote
-    ((haskell-process-use-ghci . t)
+    ((encoding . utf-8)
+     (haskell-process-use-ghci . t)
      (haskell-indent-spaces . 4)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
