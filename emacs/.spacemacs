@@ -182,6 +182,19 @@ layers configuration."
   ;; Set tramp shell to bash b/c zsh PS1 makes it hang.
   (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
 
+  ;; Add babel function executors
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (sh . t)
+     (elixir . t)
+     (haskell . t)
+     (python . t)
+     (R . t)
+     (ruby . t)
+     (sqlite . t)
+     ))
+
   ;; Set indentation levels; override js, css, web modes to 2.
   (setq js-indent-level 2)
   (setq css-indent-offset 2)
@@ -192,6 +205,7 @@ layers configuration."
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-attr-indent-offset 2)
   (setq indent-tabs-mode nil)
+  (setq scss-indent-level 2)
   (eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concat" . nil))
@@ -200,7 +214,7 @@ layers configuration."
   ;; Add nix and node modules bins to path.
   ;; Tern, aspell, etc live in these.
   (setq exec-path (append
-                   exec-path '(“~/node_modules/.bin” "~/.nix-profile/bin")))
+                   exec-path '("~/node_modules/.bin" "~/.nix-profile/bin" "~/.rvm/gems/ruby-2.3.1/bin")))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
