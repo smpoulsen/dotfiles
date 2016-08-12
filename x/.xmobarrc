@@ -1,0 +1,21 @@
+Config { font = "xft:Monoid-Retina:size=7:antialias=true"
+       , bgColor = "black"
+       , fgColor = "grey"
+       --, position = Static { xpos=0, ypos=0, width=2550, height=15 }
+       , position = Top
+       , lowerOnStart = True
+       , commands = [ Run Weather "KBWI" ["-t","<station>: <tempF>F","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 21061
+                    , Run Network "enp0s31f7" ["-L","32","-H","75","--normal","green","--high","red"] 10
+                    , Run Network "enp0s31f7" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run MultiCpu ["-t","<autototal>%","-L","3","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Com "uname" ["-s","-r"] "" 36000
+                    , Run Date "%a %Y-%m-%d %H:%M:%S" "date" 10
+                    , Run StdinReader
+                    , Run TopProc [] 20
+                    , Run BatteryP ["BAT1"] ["-t", "<acstatus>", "-L", "10", "-H", "80", "-l", "red", "-h", "green", "--", "-O", "Charging", "-o", "Battery: <left>%"] 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% | %memory% | %wlp4s0% | CPUs: %multicpu% | Top: %top% }{ <fc=#ee9a00>%date%</fc>| %KBWI% | %battery% | %uname%"
+       }
