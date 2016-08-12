@@ -50,11 +50,11 @@ plugins=(git osx brew cabal vagrant rails ruby tmux mix)
 
 # User configuration
 
-export PATH="$PATH:$HOME/Library/Haskell/bin:$HOME/.cabal/bin:.nix-profile/bin/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Developer:$HOME/node_modules/.bin"
+export PATH="$PATH:$HOME/Library/Haskell/bin:$HOME/.cabal/bin:.nix-profile/bin/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Nix
-. /Users/tpoulsen/.nix-profile/etc/profile.d/nix.sh
+# . /Users/tpoulsen/.nix-profile/etc/profile.d/nix.sh
 
 # kiex - Elixir version manager
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
