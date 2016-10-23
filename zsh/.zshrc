@@ -50,7 +50,7 @@ plugins=(git osx brew cabal vagrant rails ruby tmux mix)
 
 # User configuration
 
-export PATH="$PATH:$HOME/Library/Haskell/bin:$HOME/.cabal/bin:.nix-profile/bin/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+export PATH="$PATH:$HOME/Library/Haskell/bin:$HOME/.cabal/bin:$HOME/.local/bin:.nix-profile/bin/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Developer:$HOME/.yarn/dist/bin:$HOME/node_modules/.bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Nix
@@ -58,6 +58,12 @@ export PATH="$PATH:$HOME/Library/Haskell/bin:$HOME/.cabal/bin:.nix-profile/bin/:
 
 # kiex - Elixir version manager
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
+# RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# NPM
+NPM_PACKAGES="${HOME}/node_modules"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,3 +92,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export PATH="~/.yarn/bin:$PATH"

@@ -25,13 +25,15 @@
      ess
      extra-langs
      eyebrowse
-     javascript
      git
      haskell
      html
+     idris
+     javascript
      markdown
      org
      purescript
+     racket
      react
      restclient
      ruby
@@ -46,7 +48,10 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(ob-elixir
+                                      swiper-helm
+                                      ox-reveal
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -89,8 +94,8 @@
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Monoid"
-                               :size 13
+   dotspacemacs-default-font '("Fira Code Retina"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -187,6 +192,7 @@ layers configuration."
    'org-babel-load-languages
    '(
      (sh . t)
+     (emacs-lisp . t)
      (elixir . t)
      (haskell . t)
      (python . t)
@@ -194,6 +200,16 @@ layers configuration."
      (ruby . t)
      (sqlite . t)
      ))
+
+  ;; Use a visal indicator that text has wrapped in visual-line-mode
+  (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
+
+  ;; Make swiper use helm's default buffer
+  (setq swiper-helm-default-display-buffer 'helm-default-display-buffer)
+
+  ;; Bind swiper to Leader-. and use Leader . / to start swiper-helm
+  (spacemacs/declare-prefix "." "swiper-prefix")
+  (spacemacs/set-leader-keys "./" 'swiper-helm)
 
   ;; Set indentation levels; override js, css, web modes to 2.
   (setq js-indent-level 2)
@@ -209,12 +225,43 @@ layers configuration."
   (eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concat" . nil))
-    ;;(add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
     )
-  ;; Add nix and node modules bins to path.
+  ;; Add nix, stack, and node modules bins to path.
   ;; Tern, aspell, etc live in these.
   (setq exec-path (append
-                   exec-path '("~/node_modules/.bin" "~/.nix-profile/bin" "~/.rvm/gems/ruby-2.3.1/bin")))
+                   exec-path '("~/node_modules/.bin" "~/.nix-profile/bin" "~/.local/bin" "~/.rvm/gems/ruby-2.3.1/bin")))
+
+  ;; Fira code ligature support
+  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+                (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+                (36 . ".\\(?:>\\)")
+                (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+                (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+                (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+                (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+                (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+                (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+                (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+                (48 . ".\\(?:x[a-zA-Z]\\)")
+                (58 . ".\\(?:::\\|[:=]\\)")
+                (59 . ".\\(?:;;\\|;\\)")
+                (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+                (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+                (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+                (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+                (91 . ".\\(?:]\\)")
+                (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+                (94 . ".\\(?:=\\)")
+                (119 . ".\\(?:ww\\)")
+                (123 . ".\\(?:-\\)")
+                (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+                (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+                )
+              ))
+    (dolist (char-regexp alist)
+      (set-char-table-range composition-function-table (car char-regexp)
+                            `([,(cdr char-regexp) 0 font-shape-gstring]))))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -232,13 +279,16 @@ layers configuration."
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
  '(haskell-interactive-popup-error nil)
- '(haskell-notify-p t t)
- '(haskell-process-auto-import-loaded-modules t t)
- '(haskell-process-suggest-remove-import-lines t t)
+ '(haskell-notify-p t)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote auto))
- '(haskell-stylish-on-save nil t)
- '(haskell-tags-on-save t t)
- '(ring-bell-function (quote ignore) t)
+ '(haskell-stylish-on-save nil)
+ '(haskell-tags-on-save t)
+ '(package-selected-packages
+   (quote
+    (focus slack racket-mode zonokai-theme zenburn-theme zen-and-art-theme xterm-color ws-butler wolfram-mode window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe vagrant-tramp vagrant use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme toml-mode toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit swiper-helm sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stekene-theme stan-mode spacemacs-theme spaceline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smooth-scrolling smeargle slim-mode shm shell-pop seti-theme scss-mode scad-mode sass-mode rvm ruby-tools ruby-test-mode ruby-end rubocop rspec-mode robe reverse-theme restclient restart-emacs rbenv rainbow-delimiters racer quelpa qml-mode purple-haze-theme psci psc-ide professional-theme popwin planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el pastels-on-dark-theme paradox page-break-lines ox-reveal orgit organic-green-theme org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme ob-elixir noctilux-theme niflheim-theme neotree naquadah-theme mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme matlab-mode material-theme markdown-toc majapahit-theme magit-gitflow macrostep lush-theme lorem-ipsum linum-relative light-soap-theme leuven-theme less-css-mode json-mode js2-refactor js-doc jbeans-theme jazz-theme jade-mode ir-black-theme inkpot-theme info+ indent-guide idris-mode ido-vertical-mode hungry-delete htmlize hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-dash helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme haskell-snippets harvest gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger gh-md gandalf-theme flycheck-rust flycheck-pos-tip flycheck-haskell flycheck-elm flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator farmhouse-theme fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu ess-smart-equals ess-R-object-popup ess-R-data-view espresso-theme eshell-prompt-extras esh-help erlang emmet-mode elm-mode elisp-slime-nav dracula-theme django-theme define-word dash-at-point darktooth-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-web company-tern company-statistics company-racer company-quickhelp company-ghc company-cabal colorsarenice-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode cmm-mode clues-theme clean-aindent-mode chruby cherry-blossom-theme busybee-theme bundler buffer-move bubbleberry-theme bracketed-paste birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-compile arduino-mode apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes alchemist aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(ring-bell-function (quote ignore))
  '(safe-local-variable-values
    (quote
     ((encoding . utf-8)
