@@ -211,23 +211,7 @@ Can be installed with `brew install trash'."
       create-lockfiles nil)
 (require 'uniquify)
 ;; When having windows with repeated filenames, uniquify them
-;; by the folder they are in rather those annoying <2>,<3>,.. etc
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets
-      ;; don't screw special buffers
-      uniquify-ignore-buffers-re "^\\*")
-;; remove annoying ellipsis when printing sexp in message buffer
-(setq eval-expression-print-length nil
-      eval-expression-print-level nil)
-;; Save point position between sessions
-(require 'saveplace)
-(setq-default save-place t
-              save-place-file (concat spacemacs-cache-directory "places"))
-
-;; minibuffer history
-(require 'savehist)
-(setq savehist-file (concat spacemacs-cache-directory "savehist")
-      enable-recursive-minibuffers t ; Allow commands in minibuffers
-      history-length 1000
+;; 
       savehist-additional-variables '(kill-ring mark-ring global-mark-ring search-ring regexp-search-ring extended-command-history)
       savehist-autosave-interval 60)
 (savehist-mode +1)
@@ -245,7 +229,7 @@ Can be installed with `brew install trash'."
 (setq bookmark-default-file (concat spacemacs-cache-directory "bookmarks")
       ;; save after every change
       bookmark-save-flag 1
-      url-configuration-directory (concat spacemacs-cache-directory "url")
+      url-configuration-directory (concat spacemacs-:cache-directory "url")
       eshell-directory-name (concat spacemacs-cache-directory "eshell" )
       tramp-persistency-file-name (concat spacemacs-cache-directory "tramp"))
 
