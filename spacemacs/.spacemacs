@@ -42,20 +42,21 @@ values."
                       auto-completion-tab-key-behavior 'complete
                       auto-completion-return-key-behavior 'complete
                       auto-completion-enable-sort-by-usage t)
+     ;; eyebrowse
+     ;;htmlize
      better-defaults
      dash
+     elixir
      elm
      emacs-lisp
      erlang
-     elixir
      ess
      extra-langs
-     ;; eyebrowse
      git
      haskell
      html
-     ivy
      idris
+     ivy
      javascript
      markdown
      org
@@ -64,6 +65,7 @@ values."
      react
      restclient
      ruby
+     ruby-on-rails
      rust
      shell
      spacemacs-layouts
@@ -72,9 +74,6 @@ values."
      syntax-checking
      themes-megapack
      vagrant
-     ;;htmlize
-     ruby
-     ruby-on-rails
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
