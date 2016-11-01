@@ -34,3 +34,6 @@
 [submodule "vim-javascript"]
 	path = vim/.vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "spacemacs"]
+	path = spacemacs/.emacs.d
+	url = git@github.com:syl20bnr/spacemacs.git
