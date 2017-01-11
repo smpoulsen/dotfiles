@@ -7,3 +7,7 @@ export PATH="$HOME/Library/Haskell/bin:$HOME/.cabal/bin:$HOME/.nix-profile/bin:$
 
 # NPM
 NPM_PACKAGES="${HOME}/node_modules"
+
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
