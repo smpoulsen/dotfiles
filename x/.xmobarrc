@@ -17,5 +17,5 @@ Config { font = "xft:Monoid-Retina:size=7:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% | %memory% | %wlp4s0% | CPUs: %multicpu% | Top: %top% }{ <fc=#ee9a00>%date%</fc>| %KBWI% | %battery% | %uname%"
+       , template = "%StdinReader% | %memory% | %s31f6% | CPUs: %multicpu% | Top: %top% }{ <fc=#ee9a00>%date%</fc>| %KBWI% | %battery% | %uname%"
        }

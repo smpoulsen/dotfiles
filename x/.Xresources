@@ -1,4 +1,4 @@
-URxvt.font: xft:Monoid-Retina:size=10
+URxvt.font: xft:Fira-code:size=10
 
 urxvt.foreground: 	#E8DFD6
 urxvt.background: 	#021B21
