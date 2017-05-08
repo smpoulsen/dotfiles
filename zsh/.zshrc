@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="steeef"
+ZSH_THEME="spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -50,15 +50,6 @@ plugins=(git osx brew cabal vagrant rails ruby tmux mix)
 
 # User configuration
 
-export PATH="$PATH:$HOME/Library/Haskell/bin:$HOME/.cabal/bin:.nix-profile/bin/:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# Nix
-# . /Users/tpoulsen/.nix-profile/etc/profile.d/nix.sh
-
-# kiex - Elixir version manager
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -86,3 +77,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# kiex - Elixir version manager
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
+# asdf PL version manager 
+# Ref: https://github.com/asdf-vm/asdf
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash

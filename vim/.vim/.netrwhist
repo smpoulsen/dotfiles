@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/tpoulsen/.vim'
 let g:netrw_dirhist_2='/Users/tpoulsen/Code/murmurLabs/dev/murmurQuiz/vendor'
 let g:netrw_dirhist_3='/Users/tpoulsen/dotfiles/emacs/spacemacs'
+let g:netrw_dirhist_4='/Users/tpoulsen/code/smartlogic/asq/skeleton/asqonline/test'
