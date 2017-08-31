@@ -77,10 +77,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# kiex - Elixir version manager
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-
-# asdf PL version manager 
+# asdf PL version manager
 # Ref: https://github.com/asdf-vm/asdf
-. $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# OPAM configuration
+. /Users/travispoulsen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

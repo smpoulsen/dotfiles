@@ -3,10 +3,17 @@ export PATH="$HOME/Library/Haskell/bin:$HOME/.cabal/bin:$HOME/.nix-profile/.bin:
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Nix
-. /Users/tpoulsen/.nix-profile/etc/profile.d/nix.sh
+# Not currently using.
+# . /Users/tpoulsen/.nix-profile/etc/profile.d/nix.sh
+
+# asdf PL version manager
+. $HOME/.asdf/asdf.sh
 
 # NPM
 NPM_PACKAGES="${HOME}/node_modules"
+
+# Enable erlang-history
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 export ANDROID_HOME=~/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools
