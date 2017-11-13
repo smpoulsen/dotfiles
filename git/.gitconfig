@@ -1,3 +1,5 @@
 [user]
 	email = travis.poulsen@gmail.com
 	name = Travis Poulsen
+[core]
+	editor = emacsclient -t -a=""
