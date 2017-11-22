@@ -48,7 +48,7 @@ values."
      csv
      dash
      elixir
-     elm
+     ;;elm
      emacs-lisp
      erlang
      ess
@@ -67,7 +67,7 @@ values."
      purescript
      racket
      react
-     reason
+     ;;reason
      restclient
      ruby
      ruby-on-rails
@@ -421,7 +421,8 @@ you should place your code here."
 
   (config-web-layers)
   (fira-code-ligatures)
-  (reason-mode-config)
+
+  ;;(reason-mode-config)
 
   ;; Highlight strings representing colors with their color
   (add-hook 'prog-mode-hook 'rainbow-mode)
@@ -554,7 +555,7 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(alchemist-iex-program-name "/Users/travispoulsen/.asdf/shims/iex")
- '(alchemist-mix-command "/Users/travispoulsen/.asdf/shims/mix")
+ '(alchemist-mix-command "/Users/travispoulsen/.asdf/shims/mix" t)
  '(compilation-message-face (quote default))
  '(custom-safe-themes
    (quote
@@ -563,7 +564,7 @@ you should place your code here."
  '(exec-path
    (quote
     ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin" "/opt/X11/bin" "/Users/tpoulsen/.asdf/bin" "/Users/tpoulsen/.asdf/shims" "/Users/tpoulsen/.kiex/elixirs/elixir-1.4/bin" "/Users/tpoulsen/.kiex/elixirs/elixir-1.3.2/bin" "/Users/tpoulsen/.kiex/bin" "/Users/tpoulsen/Library/Haskell/bin" "/Users/tpoulsen/.cabal/bin" "/Users/tpoulsen/.nix-profile/bin" "/Users/tpoulsen/.local/bin" "/usr/local/MacGPG2/bin" "/Library/Developer" "/Users/tpoulsen/.yarn/dist/bin" "/Users/tpoulsen/node_modules/.bin" "/nix/store/sk4ifn4k98gaizr4ny5lhcy4msiyd5d3-emacs-25.1/libexec/emacs/25.1/x86_64-apple-darwin15.0.0")))
- '(fci-rule-color "#20240E")
+ '(fci-rule-color "#20240E" t)
  '(flycheck-javascript-flow-args (quote ("--respect-pragma")))
  '(glasses-separator "")
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
@@ -590,6 +591,7 @@ you should place your code here."
  '(pos-tip-foreground-color "#272822")
  '(psc-ide-add-import-on-completion t t)
  '(psc-ide-rebuild-on-save nil t)
+ '(racer-rust-src-path "/Users/travispoulsen/.rust/rust/src")
  '(safe-local-variable-values
    (quote
     ((encoding . utf-8)
@@ -624,4 +626,4 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:foreground "#dedded" :background "#484349")))))
