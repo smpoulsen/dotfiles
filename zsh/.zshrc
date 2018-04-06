@@ -46,7 +46,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx brew cabal vagrant rails ruby tmux mix)
+plugins=(git osx brew cabal vagrant ruby tmux mix)
 
 # User configuration
 
@@ -77,10 +77,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# kiex - Elixir version manager
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-
-# asdf PL version manager 
+# asdf PL version manager
 # Ref: https://github.com/asdf-vm/asdf
-. $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# OPAM configuration
+. /Users/travispoulsen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
