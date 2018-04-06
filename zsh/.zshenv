@@ -1,5 +1,5 @@
 # Travis Poulsen - 2016
-export PATH="$HOME/Library/Haskell/bin:$HOME/.cabal/bin:$HOME/.cargo/bin:$HOME/.nix-profile/.bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Developer:$HOME/node_modules/.bin:$HOME/node_modules/bin"
+export PATH="$HOME/Library/Haskell/bin:$HOME/.cabal/bin:$HOME/.cargo/bin:$HOME/.nix-profile/.bin:$HOME/.local/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/Developer:$HOME/node_modules/.bin:$HOME/node_modules/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Nix
