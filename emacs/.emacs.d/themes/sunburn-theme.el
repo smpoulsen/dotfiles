@@ -157,7 +157,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(lazy-highlight ((t (:foreground ,sunburn-yellow-2 :weight bold :background ,sunburn-bg-05))))
 
    `(menu ((t (:foreground ,sunburn-fg :background ,sunburn-bg))))
-   `(minibuffer-prompt ((t (:foreground ,sunburn-yellow))))
+   `(minibuffer-prompt ((t (:background ,sunburn-bg-05 :foreground ,sunburn-yellow))))
    `(mode-line
      ((,class (:foreground ,sunburn-fg+1
                            :background ,sunburn-bg-05
@@ -175,7 +175,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(trailing-whitespace ((t (:background ,sunburn-red))))
    `(vertical-border ((t (:foreground ,sunburn-fg))))
 ;;;;; font lock
-   `(font-lock-builtin-face ((t (:foreground ,sunburn-fg :weight bold))))
+   `(font-lock-builtin-face ((t (:foreground ,sunburn-fg-1, :weight bold))))
    `(font-lock-comment-face ((t (:background ,sunburn-bg :foreground ,sunburn-bg+3))))
    `(font-lock-comment-delimiter-face ((t (:background ,sunburn-bg :foreground ,sunburn-bg+3))))
    `(font-lock-constant-face ((t (:foreground ,sunburn-blue+1))))
@@ -816,22 +816,23 @@ Also bind `class' to ((class color) (min-colors 89))."
      ((t (:underline t))))
 ;;;;; magit
 ;;;;;; headings and diffs
-   `(magit-section-highlight           ((t (:background ,sunburn-bg+05))))
+   `(magit-section-highlight           ((t (:background ,sunburn-bg-1 :foreground ,sunburn-fg-1))))
    `(magit-section-heading             ((t (:foreground ,sunburn-yellow :weight bold))))
    `(magit-section-heading-selection   ((t (:foreground ,sunburn-orange :weight bold))))
    `(magit-diff-file-heading           ((t (:weight bold))))
    `(magit-diff-file-heading-highlight ((t (:background ,sunburn-bg+05  :weight bold))))
    `(magit-diff-file-heading-selection ((t (:background ,sunburn-bg+05
                                                         :foreground ,sunburn-orange :weight bold))))
-   `(magit-diff-hunk-heading           ((t (:background ,sunburn-bg+1))))
-   `(magit-diff-hunk-heading-highlight ((t (:background ,sunburn-bg+2))))
+   `(magit-diff-hunk-heading           ((t (:background ,sunburn-bg-05))))
+   `(magit-diff-hunk-heading-highlight ((t (:foreground ,sunburn-bg-05 :background ,sunburn-gold))))
    `(magit-diff-hunk-heading-selection ((t (:background ,sunburn-bg+2
                                                         :foreground ,sunburn-orange))))
-   `(magit-diff-lines-heading          ((t (:background ,sunburn-orange
-                                                        :foreground ,sunburn-bg+2))))
-   `(magit-diff-context-highlight      ((t (:background ,sunburn-bg+05
-                                                        :foreground "grey70"))))
+   `(magit-diff-lines-heading          ((t (:background ,sunburn-red+1
+                                                        :foreground ,sunburn-bg-2))))
+   `(magit-diff-context-highlight      ((t (:background ,sunburn-bg-1
+                                                        :foreground ,sunburn-fg-1))))
    `(magit-diffstat-added   ((t (:foreground ,sunburn-green+4))))
+   `(magit-diff-whitespace-warning ((t (:background ,sunburn-red :foreground ,sunburn-fg+1))))
    `(magit-diffstat-removed ((t (:foreground ,sunburn-red))))
 ;;;;;; popup
    `(magit-popup-heading             ((t (:foreground ,sunburn-yellow  :weight bold))))
@@ -996,12 +997,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-formula ((t (:foreground ,sunburn-yellow-2))))
    `(org-headline-done ((t (:foreground ,sunburn-green+3))))
    `(org-hide ((t (:foreground ,sunburn-bg-1))))
-   `(org-level-1 ((t (:foreground ,sunburn-yellow))))
-   `(org-level-2 ((t (:foreground ,sunburn-blue+1))))
-   `(org-level-3 ((t (:foreground ,sunburn-orange))))
-   `(org-level-4 ((t (:foreground ,sunburn-cyan))))
-   `(org-level-5 ((t (:foreground ,sunburn-green))))
-   `(org-level-6 ((t (:foreground ,sunburn-red))))
+   `(org-level-1 ((t (:weight bold :foreground ,sunburn-yellow))))
+   `(org-level-2 ((t (:weight bold :foreground ,sunburn-blue+1))))
+   `(org-level-3 ((t (:weight bold :foreground ,sunburn-orange))))
+   `(org-level-4 ((t (:weight bold :foreground ,sunburn-cyan))))
+   `(org-level-5 ((t (:weight bold :foreground ,sunburn-green))))
+   `(org-level-6 ((t (:weight bold :foreground ,sunburn-red))))
    `(org-level-7 ((t (:foreground ,sunburn-yellow))))
    `(org-level-8 ((t (:foreground ,sunburn-blue+1))))
    `(org-link ((t (:foreground ,sunburn-yellow :underline t))))
@@ -1044,6 +1045,17 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-block-begin-line ((t :background ,sunburn-bg-1 :foreground ,sunburn-yellow)))
    `(org-block-end-line ((t :background ,sunburn-bg-1 :foreground ,sunburn-yellow)))
    `(org-block ((t :background ,sunburn-bg :foreground ,sunburn-fg+1)))
+;;;;; ein
+   `(ein:cell-input-prompt ((t (:foreground ,sunburn-cyan))))
+   `(ein:cell-input-area ((t :background ,sunburn-bg-1)))
+   `(ein:cell-heading-1 ((t (:weight bold :foreground ,sunburn-yellow))))
+   `(ein:cell-heading-2 ((t (:weight bold :foreground ,sunburn-blue+1))))
+   `(ein:cell-heading-3 ((t (:weight bold :foreground ,sunburn-orange))))
+   `(ein:cell-heading-4 ((t (:weight bold :foreground ,sunburn-cyan))))
+   `(ein:cell-heading-5 ((t (:weight bold :foreground ,sunburn-green))))
+   `(ein:cell-heading-6 ((t (:weight bold :foreground ,sunburn-red))))
+   `(ein:cell-output-stderr ((t (:weight bold :foreground ,sunburn-red :weight bold :underline nil))))
+   `(ein:cell-output-prompt ((t (:foreground ,sunburn-green+3))))
 ;;;;; outline
    `(outline-1 ((t (:foreground ,sunburn-orange))))
    `(outline-2 ((t (:foreground ,sunburn-green+4))))
