@@ -3,3 +3,5 @@
 	name = Travis Poulsen
 [core]
 	editor = emacsclient -t -a=""
+[init]
+	defaultBranch = main
