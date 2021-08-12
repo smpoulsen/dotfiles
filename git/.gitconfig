@@ -6,3 +6,5 @@
 	editor = emacsclient -t -a=""
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
