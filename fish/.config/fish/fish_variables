@@ -1,6 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export ERL_AFLAGS:\x2dkernel\x20shell_history\x20enabled
+SETUVAR --export SSH_AUTH_SOCK:/Users/sylvie/\x2egnupg/S\x2egpg\x2dagent\x2essh
+SETUVAR --export TZ:America/New_York
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
@@ -34,5 +36,5 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/Users/tpoulsen/\x2enix\x2dprofile/bin\x1e/usr/local/sbin/
+SETUVAR fish_user_paths:/Users/sylvie/\x2ecargo/bin\x1e/usr/local/opt/openssl\x401\x2e1/bin\x1e/usr/local/sbin/
 SETUVAR pure_version:2\x2e1\x2e8

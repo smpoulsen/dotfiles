@@ -1,6 +1,7 @@
 [user]
 	email = git@poulsen.xyz
 	name = Sylvie Poulsen
+	signingkey = AEB12283C38DBBE5
 [core]
 	editor = emacsclient -t -a=""
 [init]

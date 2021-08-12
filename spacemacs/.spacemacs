@@ -85,6 +85,7 @@ This function should only modify configuration layer settings."
      spell-checking
      sql
      syntax-checking
+     terraform
      themes-megapack
      yaml
      treemacs
@@ -585,9 +586,9 @@ you should place your code here."
   ;; Powerline separator
   (setq powerline-default-separator 'arrow)
 
-  (setq org-src-f   ;; If non nil then the last auto saved layouts are resume automatically upon
-        o   ;; If non nil then the last auto saved layouts are resume automatically upon
-ntify-natively t)
+  ;; If non nil then the last auto saved layouts are resume automatically upon
+  ;; If non nil then the last auto saved layouts are resume automatically upon
+  (setq org-src-fontify-natively t)
 
   ;; fuzzy search when finding file names
   (setq ivy-re-builders-alist
@@ -631,14 +632,15 @@ ntify-natively t)
   (setq-default with-editor-emacsclient-executable
                 ;;"/nix/store/6v2yp5416pla8anq0rq2aqkq90s5i4vg-emacs-25.1/bin/emacsclient")
                 ;;"/Applications/Emacs.app/Contents/MacOS/bin/emacsclient")
-                "/Users/tpoulsen/.nix-profile/bin/emacsclient")
+                ;;"/Users/sylvie/.nix-profile/bin/emacsclient"
+                "/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_11/emacsclient")
 
   ;; don't refresh buffer-menu
   (add-to-list 'global-auto-revert-ignore-modes 'Buffer-menu-mode)
 
   ;; Add nix, stack, and node modules bins to path.
   ;; Tern, aspell, etc live in these.
-  (exec-path-from-shell-initialize)
+  ;;(exec-path-from-shell-initialize)
   (push (expand-file-name "~/node_modules/.bin") exec-path)
   (push (expand-file-name "~/.local/bin") exec-path)
   (push (expand-file-name "~/.asdf/shims/mix") exec-path)
@@ -649,6 +651,7 @@ ntify-natively t)
   (setq alchemist-mix-command "~/.asdf/shims/mix")
 
   (config-web-layers)
+
   (fira-code-ligatures)
 
   ;;(reason-mode-config)
@@ -790,8 +793,8 @@ ntify-natively t)
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(alchemist-iex-program-name "/Users/travispoulsen/.asdf/shims/iex")
- '(alchemist-mix-command "/Users/travispoulsen/.asdf/shims/mix")
+ '(alchemist-iex-program-name "/Users/sylvie/.asdf/shims/iex")
+ '(alchemist-mix-command "/Users/sylvie/.asdf/shims/mix")
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(compilation-message-face 'default)
@@ -804,9 +807,9 @@ ntify-natively t)
    '("f01897ba52462e54f30e25d0eff9b7a09a8706d49da039e56d4a706ea8d02447" "99e22ce2d57e73191fcbcbd41d4d700ea0fa108e8abd20ff17dfcde3737d2b20" "101e7627031da560189eb8c485c2201b3a8faab27411b0a8ccf7dabbd226e922" "b34636117b62837b3c0c149260dfebe12c5dad3d1177a758bb41c4b15259ed7e" "b85fc9f122202c71b9884c5aff428eb81b99d25d619ee6fde7f3016e08515f07" "ac41c8878a28ca7dc82b0384793e6e850a7d865c52d27696e20ff677c992944e" default))
  '(evil-want-Y-yank-to-eol nil)
  '(exec-path
-   '("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin" "/opt/X11/bin" "/Users/tpoulsen/.asdf/bin" "/Users/tpoulsen/.asdf/shims" "/Users/tpoulsen/.kiex/elixirs/elixir-1.4/bin" "/Users/tpoulsen/.kiex/elixirs/elixir-1.3.2/bin" "/Users/tpoulsen/.kiex/bin" "/Users/tpoulsen/Library/Haskell/bin" "/Users/tpoulsen/.cabal/bin" "/Users/tpoulsen/.nix-profile/bin" "/Users/tpoulsen/.local/bin" "/usr/local/MacGPG2/bin" "/Library/Developer" "/Users/tpoulsen/.yarn/dist/bin" "/Users/tpoulsen/node_modules/.bin" "/nix/store/sk4ifn4k98gaizr4ny5lhcy4msiyd5d3-emacs-25.1/libexec/emacs/25.1/x86_64-apple-darwin15.0.0"))
+   '("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin" "/opt/X11/bin" "/Users/sylvie/.asdf/bin" "/Users/sylvie/.asdf/shims" "/Users/sylvie/.kiex/elixirs/elixir-1.4/bin" "/Users/sylvie/.kiex/elixirs/elixir-1.3.2/bin" "/Users/sylvie/.kiex/bin" "/Users/sylvie/Library/Haskell/bin" "/Users/sylvie/.cabal/bin" "/Users/sylvie/.nix-profile/bin" "/Users/sylvie/.local/bin" "/usr/local/MacGPG2/bin" "/Library/Developer" "/Users/sylvie/.yarn/dist/bin" "/Users/sylvie/node_modules/.bin" "/nix/store/sk4ifn4k98gaizr4ny5lhcy4msiyd5d3-emacs-25.1/libexec/emacs/25.1/x86_64-apple-darwin15.0.0"))
  '(fci-rule-color "#4A4159" t)
- '(flycheck-erlang-rebar3-executable "/Users/tpoulsen/.cache/rebar3/bin/rebar3")
+ '(flycheck-erlang-rebar3-executable "/Users/sylvie/.cache/rebar3/bin/rebar3")
  '(flycheck-javascript-flow-args '("--respect-pragma"))
  '(glasses-separator "")
  '(highlight-changes-colors '("#FD5FF0" "#AE81FF"))
@@ -824,7 +827,7 @@ ntify-natively t)
  '(pdf-view-midnight-colors '("#dedded" . "#4A4159"))
  '(psc-ide-add-import-on-completion t t)
  '(psc-ide-rebuild-on-save nil t)
- '(racer-rust-src-path "/Users/travispoulsen/.rust/rust/src")
+ '(racer-rust-src-path "/Users/sylvie/.rust/rust/src")
  '(safe-local-variable-values
    '((encoding . utf-8)
      (elixir-enable-compilation-checking . t)
@@ -867,7 +870,7 @@ ntify-natively t)
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ '(default ((t (:background nil :family "Fira Code" :foundry "nil" :slant normal :weight normal :height 160 :width normal)))))
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
@@ -878,25 +881,31 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(alchemist-iex-program-name "/Users/travispoulsen/.asdf/shims/iex")
- '(alchemist-mix-command "/Users/travispoulsen/.asdf/shims/mix")
+ '(alchemist-iex-program-name "/Users/sylvie/.asdf/shims/iex")
+ '(alchemist-mix-command "/Users/sylvie/.asdf/shims/mix" t)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#E5E9F0" "#99324B" "#4F894C" "#9A7500" "#3B6EA8" "#97365B" "#398EAC" "#3B4252"])
+ '(blink-cursor-mode nil)
+ '(column-number-mode t)
  '(compilation-message-face 'default)
- '(css-indent-offset 2)
+ '(css-indent-offset 2 t)
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(custom-safe-themes
-   '("37768a79b479684b0756dec7c0fc7652082910c37d8863c35b702db3f16000f8" "101e7627031da560189eb8c485c2201b3a8faab27411b0a8ccf7dabbd226e922" "b34636117b62837b3c0c149260dfebe12c5dad3d1177a758bb41c4b15259ed7e" "b85fc9f122202c71b9884c5aff428eb81b99d25d619ee6fde7f3016e08515f07" "ac41c8878a28ca7dc82b0384793e6e850a7d865c52d27696e20ff677c992944e" default))
+   '("37768a79b479684b0756dec7c0fc7652082910c37d8863c35b702db3f16000f8" "f01897ba52462e54f30e25d0eff9b7a09a8706d49da039e56d4a706ea8d02447" "99e22ce2d57e73191fcbcbd41d4d700ea0fa108e8abd20ff17dfcde3737d2b20" "101e7627031da560189eb8c485c2201b3a8faab27411b0a8ccf7dabbd226e922" "b34636117b62837b3c0c149260dfebe12c5dad3d1177a758bb41c4b15259ed7e" "b85fc9f122202c71b9884c5aff428eb81b99d25d619ee6fde7f3016e08515f07" "ac41c8878a28ca7dc82b0384793e6e850a7d865c52d27696e20ff677c992944e" default))
  '(evil-want-Y-yank-to-eol nil)
  '(exec-path
-   '("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin" "/opt/X11/bin" "/Users/tpoulsen/.asdf/bin" "/Users/tpoulsen/.asdf/shims" "/Users/tpoulsen/.kiex/elixirs/elixir-1.4/bin" "/Users/tpoulsen/.kiex/elixirs/elixir-1.3.2/bin" "/Users/tpoulsen/.kiex/bin" "/Users/tpoulsen/Library/Haskell/bin" "/Users/tpoulsen/.cabal/bin" "/Users/tpoulsen/.nix-profile/bin" "/Users/tpoulsen/.local/bin" "/usr/local/MacGPG2/bin" "/Library/Developer" "/Users/tpoulsen/.yarn/dist/bin" "/Users/tpoulsen/node_modules/.bin" "/nix/store/sk4ifn4k98gaizr4ny5lhcy4msiyd5d3-emacs-25.1/libexec/emacs/25.1/x86_64-apple-darwin15.0.0"))
- '(fci-rule-color "#20240E" t)
- '(flycheck-erlang-rebar3-executable "/Users/tpoulsen/.cache/rebar3/bin/rebar3")
+   '("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/usr/local/bin" "/opt/X11/bin" "/Users/sylvie/.asdf/bin" "/Users/sylvie/.asdf/shims" "/Users/sylvie/.kiex/elixirs/elixir-1.4/bin" "/Users/sylvie/.kiex/elixirs/elixir-1.3.2/bin" "/Users/sylvie/.kiex/bin" "/Users/sylvie/Library/Haskell/bin" "/Users/sylvie/.cabal/bin" "/Users/sylvie/.nix-profile/bin" "/Users/sylvie/.local/bin" "/usr/local/MacGPG2/bin" "/Library/Developer" "/Users/sylvie/.yarn/dist/bin" "/Users/sylvie/node_modules/.bin" "/nix/store/sk4ifn4k98gaizr4ny5lhcy4msiyd5d3-emacs-25.1/libexec/emacs/25.1/x86_64-apple-darwin15.0.0"))
+ '(exwm-floating-border-color "#c2c6cb")
+ '(fci-rule-color "#4A4159" t)
+ '(flycheck-erlang-rebar3-executable "/Users/sylvie/.cache/rebar3/bin/rebar3")
  '(flycheck-javascript-flow-args '("--respect-pragma"))
  '(glasses-separator "")
+ '(global-display-line-numbers-mode t)
  '(highlight-changes-colors '("#FD5FF0" "#AE81FF"))
  '(highlight-tail-colors
    '(("#20240E" . 0)
@@ -911,19 +920,25 @@ This function is called at the very end of Spacemacs initialization."
    '("#DEB542" "#F2804F" "#FF6E64" "#F771AC" "#9EA0E5" "#69B7F0" "#69CABF" "#B4C342"))
  '(hl-fg-colors
    '("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3"))
- '(js-indent-level 2)
+ '(jdee-db-active-breakpoint-face-colors (cons "#F0F4FC" "#5d86b6"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#F0F4FC" "#4F894C"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#F0F4FC" "#B8C5DB"))
+ '(js-indent-level 2 t)
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
-   '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
+   '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#a7a6d4" "#9796c4" "#b48ead"))
  '(ns-confirm-quit t)
+ '(objed-cursor-color "#99324B")
  '(package-selected-packages
-   '(logcat hoon-mode ebuild-mode counsel-css white-sand-theme rebecca-theme org-mime exotica-theme ghub org-category-capture dockerfile-mode sql-indent sunburn-theme evil-surround unfill ob-restclient madhat2r-theme fuzzy flycheck-credo company-restclient know-your-http-well reason-mode utop tuareg caml ocp-indent merlin org-mind-map monokai-theme autothemer csv-mode wrap-region harvest rainbow-mode rainbow-identifiers color-identifiers-mode wgrep-ag 0blayout ox-reveal company-flow flycheck-flow ac-capf solarized-theme yaml-mode ws-butler volatile-highlights uuidgen smartparens rainbow-delimiters move-text lorem-ipsum link-hint indent-guide hungry-delete highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt expand-region eval-sexp-fu highlight column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap toc-org org-plus-contrib org-bullets projectile-rails inflections feature-mode ag spaceline powerline popwin neotree hl-todo golden-ratio fill-column-indicator fancy-battery persp-mode eyebrowse mwim zonokai-theme zenburn-theme zen-and-art-theme xterm-color wolfram-mode web-mode web-beautify vagrant-tramp vagrant underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme toml-mode thrift tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stekene-theme stan-mode spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode shell-pop seti-theme scss-mode scad-mode sass-mode reverse-theme restclient railscasts-theme racket-mode faceup racer qml-mode purple-haze-theme pug-mode psci purescript-mode psc-ide professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme orgit organic-green-theme org-projectile org-present org-pomodoro alert log4e gntp org-download omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme ob-http org noctilux-theme niflheim-theme naquadah-theme mustang-theme multi-term monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme matlab-mode material-theme markdown-toc markdown-mode majapahit-theme magit-gitflow lush-theme livid-mode skewer-mode simple-httpd light-soap-theme less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jbeans-theme jazz-theme ir-black-theme intero inkpot-theme idris-mode prop-menu htmlize hlint-refactor hindent heroku-theme hemisu-theme hc-zenburn-theme haskell-snippets haml-mode gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme flyspell-correct-ivy flyspell-correct flycheck-rust seq flycheck-pos-tip pos-tip flycheck-mix flycheck-haskell flycheck-elm flycheck flatui-theme flatland-theme firebelly-theme farmhouse-theme evil-magit magit magit-popup git-commit with-editor ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode espresso-theme eshell-z eshell-prompt-extras esh-help erlang emmet-mode elm-mode dracula-theme django-theme dash-at-point darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme counsel-dash helm-dash company-web web-completion-data company-tern dash-functional tern company-statistics company-ghci company-ghc ghc haskell-mode company-cabal colorsarenice-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode cmm-mode clues-theme cherry-blossom-theme cargo rust-mode busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet auto-dictionary arduino-mode apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes alchemist company elixir-mode afternoon-theme ac-ispell auto-complete rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake f s minitest chruby bundler inf-ruby which-key wgrep use-package smex pcre2el macrostep ivy-hydra hydra help-fns+ helm-make helm helm-core popup flx exec-path-from-shell evil-visualstar evil-escape evil goto-chg undo-tree elisp-slime-nav diminish counsel-projectile projectile pkg-info epl counsel swiper ivy bind-map bind-key auto-compile packed dash async ace-window avy quelpa package-build spacemacs-theme))
- '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
+   '(company-terraform terraform-mode hcl-mode ob-elixir transient dash-docs lv ggtags nord-theme insert-shebang fish-mode company-shell sesman parseedn parseclj a edit-indirect rjsx-mode clj-refactor edn clojure-snippets paredit peg cider-eval-sexp-fu cider spinner queue clojure-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode cython-mode company-anaconda anaconda-mode pythonic counsel-tramp rg white-sand-theme rebecca-theme org-mime exotica-theme ghub org-category-capture dockerfile-mode sql-indent sunburn-theme evil-surround unfill ob-restclient madhat2r-theme fuzzy flycheck-credo company-restclient know-your-http-well reason-mode utop tuareg caml ocp-indent merlin org-mind-map monokai-theme autothemer csv-mode wrap-region harvest rainbow-mode rainbow-identifiers color-identifiers-mode wgrep-ag 0blayout ox-reveal company-flow flycheck-flow ac-capf solarized-theme yaml-mode ws-butler volatile-highlights uuidgen smartparens rainbow-delimiters move-text lorem-ipsum link-hint indent-guide hungry-delete highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt expand-region eval-sexp-fu highlight column-enforce-mode clean-aindent-mode auto-highlight-symbol aggressive-indent adaptive-wrap toc-org org-plus-contrib org-bullets projectile-rails inflections feature-mode ag spaceline powerline popwin neotree hl-todo golden-ratio fill-column-indicator fancy-battery persp-mode eyebrowse mwim zonokai-theme zenburn-theme zen-and-art-theme xterm-color wolfram-mode web-mode web-beautify vagrant-tramp vagrant underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme toml-mode thrift tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stekene-theme stan-mode spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slim-mode shell-pop seti-theme scss-mode scad-mode sass-mode reverse-theme restclient railscasts-theme racket-mode faceup racer qml-mode purple-haze-theme pug-mode psci purescript-mode psc-ide professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme orgit organic-green-theme org-projectile org-present org-pomodoro alert log4e gntp org-download omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme ob-http org noctilux-theme niflheim-theme naquadah-theme mustang-theme multi-term monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme matlab-mode material-theme markdown-toc markdown-mode majapahit-theme magit-gitflow lush-theme livid-mode skewer-mode simple-httpd light-soap-theme less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jbeans-theme jazz-theme ir-black-theme intero inkpot-theme idris-mode prop-menu htmlize hlint-refactor hindent heroku-theme hemisu-theme hc-zenburn-theme haskell-snippets haml-mode gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme flyspell-correct-ivy flyspell-correct flycheck-rust seq flycheck-pos-tip pos-tip flycheck-mix flycheck-haskell flycheck-elm flycheck flatui-theme flatland-theme firebelly-theme farmhouse-theme evil-magit magit magit-popup git-commit with-editor ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode espresso-theme eshell-z eshell-prompt-extras esh-help erlang emmet-mode elm-mode dracula-theme django-theme dash-at-point darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme counsel-dash helm-dash company-web web-completion-data company-tern dash-functional tern company-statistics company-ghci company-ghc ghc haskell-mode company-cabal colorsarenice-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode cmm-mode clues-theme cherry-blossom-theme cargo rust-mode busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet auto-dictionary arduino-mode apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes alchemist company elixir-mode afternoon-theme ac-ispell auto-complete rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake f s minitest chruby bundler inf-ruby which-key wgrep use-package smex pcre2el macrostep ivy-hydra hydra help-fns+ helm-make helm helm-core popup flx exec-path-from-shell evil-visualstar evil-escape evil goto-chg undo-tree elisp-slime-nav diminish counsel-projectile projectile pkg-info epl counsel swiper ivy bind-map bind-key auto-compile packed dash async ace-window avy quelpa package-build spacemacs-theme))
+ '(pdf-view-midnight-colors '("#dedded" . "#4A4159"))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(psc-ide-add-import-on-completion t t)
  '(psc-ide-rebuild-on-save nil t)
- '(racer-rust-src-path "/Users/travispoulsen/.rust/rust/src")
+ '(racer-rust-src-path "/Users/sylvie/.rust/rust/src")
+ '(rustic-ansi-faces
+   ["#E5E9F0" "#99324B" "#4F894C" "#9A7500" "#3B6EA8" "#97365B" "#398EAC" "#3B4252"])
  '(safe-local-variable-values
    '((encoding . utf-8)
      (elixir-enable-compilation-checking . t)
@@ -932,28 +947,29 @@ This function is called at the very end of Spacemacs initialization."
  '(standard-indent 2)
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")
- '(vc-annotate-background nil)
+ '(tool-bar-mode nil)
+ '(vc-annotate-background "#433844")
  '(vc-annotate-background-mode nil)
  '(vc-annotate-color-map
-   '((20 . "#F92672")
-     (40 . "#CF4F1F")
-     (60 . "#C26C0F")
-     (80 . "#E6DB74")
-     (100 . "#AB8C00")
-     (120 . "#A18F00")
-     (140 . "#989200")
-     (160 . "#8E9500")
-     (180 . "#A6E22E")
-     (200 . "#729A1E")
-     (220 . "#609C3C")
-     (240 . "#4E9D5B")
-     (260 . "#3C9F79")
-     (280 . "#A1EFE4")
-     (300 . "#299BA6")
-     (320 . "#2896B5")
-     (340 . "#2790C3")
-     (360 . "#66D9EF")))
- '(vc-annotate-very-old-color nil)
+   '((20 . "#BC8383")
+     (40 . "#CC9393")
+     (60 . "#DFAF8F")
+     (80 . "#D0BF8F")
+     (100 . "#E0CF9F")
+     (120 . "#F0DFAF")
+     (140 . "#5F7F5F")
+     (160 . "#7F9F7F")
+     (180 . "#8FB28F")
+     (200 . "#9FC59F")
+     (220 . "#AFD8AF")
+     (240 . "#BFEBBF")
+     (260 . "#a7a6d4")
+     (280 . "#676694")
+     (300 . "#777694")
+     (320 . "#8786b4")
+     (340 . "#9796c4")
+     (360 . "#b48ead")))
+ '(vc-annotate-very-old-color "#b48ead")
  '(web-mode-markup-indent-offset 2 t)
  '(weechat-color-list
    (unspecified "#272822" "#20240E" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0"))
@@ -966,5 +982,5 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ '(default ((t (:background nil :family "Fira Code" :foundry "nil" :slant normal :weight normal :height 160 :width normal)))))
 )

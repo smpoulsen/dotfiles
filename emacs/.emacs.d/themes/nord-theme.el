@@ -142,7 +142,8 @@
     ;; +--- Base ---+
     `(bold ((,class (:weight bold))))
     `(bold-italic ((,class (:weight bold :slant italic))))
-    `(default ((,class (:foreground ,nord4 :background ,nord0))))
+    `(default ((,class (:foreground ,nord4 :background ,nord0 :family "Fira Code" :height 160))))
+    ;;`(default ((t (:background nord0 :family "Fira Code" :foundry "nil" :slant normal :weight normal :height 160 :width normal))))
     `(error ((,class (:foreground ,nord11 :weight bold))))
     `(escape-glyph ((,class (:foreground ,nord12))))
     `(font-lock-builtin-face ((,class (:foreground ,nord9))))
@@ -496,7 +497,7 @@
    `(diff-hl-change ((,class (:background ,nord13))))
    `(diff-hl-insert ((,class (:background ,nord14))))
    `(diff-hl-delete ((,class (:background ,nord11))))
-   
+
     ;; > Evil
     `(evil-ex-info ((,class (:foreground ,nord8))))
     `(evil-ex-substitute-replacement ((,class (:foreground ,nord9))))
@@ -689,6 +690,7 @@
     (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'nord)
+(enable-theme 'nord)
 
 ;; Local Variables:
 ;; no-byte-compile: t
