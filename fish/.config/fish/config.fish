@@ -30,13 +30,14 @@ set pure_symbol_prompt λ
 # Erlang shell history
 set -gx ERL_AFLAGS "-kernel shell_history enabled"
 # Use my rebar3
-# alias rebar3 /Users/spoulsen/.cache/rebar3/bin/rebar3
+alias rebar3 /Users/sylvie/.cache/rebar3/bin/rebar3
 
 set -xg TZ "America/New_York"
 
 # nix
+# Using with nix-fish
 # NOTE this doesn't work and I'm not sure how to correctly configure nix with fish as of now
-#source /Users/spoulsen/.nix-profile/etc/fish/config.fish
+# source /Users/sylvie/.nix-profile/etc/fish/config.fish
 
 # Enable gpg auth for ssh
 set -x GPG_TTY (tty)

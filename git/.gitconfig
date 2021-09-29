@@ -7,4 +7,6 @@
 [init]
 	defaultBranch = main
 [commit]
-	gpgsign = true
+  gpgsign = true
+[credential]
+	helper = netrc -f $HOME/.netrc.gpg -v

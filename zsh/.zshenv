@@ -17,3 +17,4 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Rust stuff
 export RUST_SRC_PATH="${HOME}/.rust/rust"
+if [ -e /Users/sylvie/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sylvie/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
