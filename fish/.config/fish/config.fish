@@ -34,6 +34,8 @@ set -gx ERL_AFLAGS "-kernel shell_history enabled"
 
 set -xg TZ "America/New_York"
 
+set -xg iCloudDrive "~/Library/Mobile\ Documents/com\~apple\~CloudDocs/"
+
 # nix
 # NOTE this doesn't work and I'm not sure how to correctly configure nix with fish as of now
 #source /Users/spoulsen/.nix-profile/etc/fish/config.fish
