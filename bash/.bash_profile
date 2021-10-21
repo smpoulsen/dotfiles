@@ -11,3 +11,4 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+if [ -e /Users/sylvie/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sylvie/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
